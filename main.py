@@ -1,8 +1,8 @@
 def mostrar_menu():
-pass
+    pass
 
 def main():
-pass
+    pass
 
-if **name** == "**main**":
-main()
+if __name__ == '__main__':
+    main()

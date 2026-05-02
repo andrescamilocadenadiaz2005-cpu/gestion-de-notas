@@ -1,11 +1,11 @@
 def registrar_estudiante(nombre, identificacion):
-pass
+    pass
 
 def ingresar_notas(estudiante):
-pass
+    pass
 
 def calcular_promedio(notas):
-pass
+    pass
 
 def determinar_estado(promedio):
-pass
+    pass
