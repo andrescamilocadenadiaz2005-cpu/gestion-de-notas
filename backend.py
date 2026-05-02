@@ -49,7 +49,14 @@ def ingresar_notas(identificacion):
     print("Estudiante no encontrado.")
 
 def calcular_promedio(notas):
-    pass
+    if len(notas) == 0:
+        return 0
+
+    return sum(notas) / len(notas)
+
 
 def determinar_estado(promedio):
-    pass
+    if promedio >= 3.0:
+        return "Aprobado"
+    else:
+        return "Reprobado"
