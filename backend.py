@@ -21,11 +21,42 @@ def registrar_estudiante(nombre, identificacion):
     
     print("Estudiante registrado correctamente.")
 
-def ingresar_notas(estudiante):
-    pass
+def ingresar_notas(identificacion):
+    estudiantes = cargar_datos()
+
+    for estudiante in estudiantes:
+        if estudiante["identificacion"] == identificacion:
+
+            cantidad = int(input("¿Cuántas notas desea ingresar?: "))
+            notas = []
+
+            for i in range(cantidad):
+                while True:
+                    nota = float(input(f"Ingrese la nota {i+1}: "))
+
+                    if 0 <= nota <= 5:
+                        notas.append(nota)
+                        break
+                    else:
+                        print("La nota debe estar entre 0 y 5.")
+
+            estudiante["notas"] = notas
+            guardar_datos(estudiantes)
+
+            print("Notas guardadas correctamente.")
+            return
+
+    print("Estudiante no encontrado.")
 
 def calcular_promedio(notas):
-    pass
+    if len(notas) == 0:
+        return 0
+
+    return sum(notas) / len(notas)
+
 
 def determinar_estado(promedio):
-    pass
+    if promedio >= 3.0:
+        return "Aprobado"
+    else:
+        return "Reprobado"
