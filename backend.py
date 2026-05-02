@@ -60,3 +60,43 @@ def determinar_estado(promedio):
         return "Aprobado"
     else:
         return "Reprobado"
+    
+def obtener_estudiante(identificacion):
+    estudiantes = cargar_datos()
+
+    for estudiante in estudiantes:
+        if estudiante["identificacion"] == identificacion:
+            return estudiante
+
+    return None
+
+
+def mostrar_promedio_estudiante(identificacion):
+    estudiante = obtener_estudiante(identificacion)
+
+    if estudiante:
+        promedio = calcular_promedio(estudiante["notas"])
+        estado = determinar_estado(promedio)
+
+        print(f"\nNombre: {estudiante['nombre']}")
+        print(f"Promedio: {promedio}")
+        print(f"Estado: {estado}")
+    else:
+        print("Estudiante no encontrado.")
+
+
+def mostrar_promedio_todos():
+    estudiantes = cargar_datos()
+
+    if not estudiantes:
+        print("No hay estudiantes registrados.")
+        return
+
+    for estudiante in estudiantes:
+        promedio = calcular_promedio(estudiante["notas"])
+        estado = determinar_estado(promedio)
+
+        print(f"\nID: {estudiante['identificacion']}")
+        print(f"Nombre: {estudiante['nombre']}")
+        print(f"Promedio: {promedio}")
+        print(f"Estado: {estado}")
