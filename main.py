@@ -6,7 +6,7 @@ def mostrar_menu():
     print("\n--- SISTEMA DE GESTIÓN DE NOTAS ---")
     print("1. Registrar estudiante")
     print("2. Ingresar notas")
-    print("3. Ver promedio y estado")
+    print("3. Calcular promedio y estado")
     print("4. Generar reporte")
     print("5. Salir")
 
