@@ -72,15 +72,28 @@ def obtener_estudiante(identificacion):
 
 
 def mostrar_promedio_estudiante(identificacion):
-    estudiante = obtener_estudiante(identificacion)
+    estudiantes = cargar_datos()
+    estudiante = None
+
+    for est in estudiantes:
+        if est["identificacion"] == identificacion:
+            estudiante = est
+            break
 
     if estudiante:
         promedio = calcular_promedio(estudiante["notas"])
         estado = determinar_estado(promedio)
 
+        # actualizar
+        estudiante["promedio"] = promedio
+        estudiante["estado"] = estado
+
         print(f"\nNombre: {estudiante['nombre']}")
         print(f"Promedio: {promedio}")
         print(f"Estado: {estado}")
+
+        # guardar cambios
+        guardar_datos(estudiantes)
     else:
         print("Estudiante no encontrado.")
 
@@ -96,7 +109,14 @@ def mostrar_promedio_todos():
         promedio = calcular_promedio(estudiante["notas"])
         estado = determinar_estado(promedio)
 
+        # actualizar datos en memoria
+        estudiante["promedio"] = promedio
+        estudiante["estado"] = estado
+
         print(f"\nID: {estudiante['identificacion']}")
         print(f"Nombre: {estudiante['nombre']}")
         print(f"Promedio: {promedio}")
         print(f"Estado: {estado}")
+
+    # guardar cambios en el JSON
+    guardar_datos(estudiantes)
