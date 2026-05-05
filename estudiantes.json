@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "identificacion": "1121234234",
+        "nombre": "carlos",
+        "notas": [
+            5.0,
+            3.0
+        ],
+        "promedio": 0,
+        "estado": "Sin calcular"
+    }
+]

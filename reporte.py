@@ -1,6 +1,7 @@
-def generar_reporte(estudiantes):
+from archivo import cargar_datos
+def generar_reporte():
     """Genera un reporte en consola."""
-
+    estudiantes = cargar_datos()
     if not estudiantes:
         print("No hay estudiantes registrados.")
         return
